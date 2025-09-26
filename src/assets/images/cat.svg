@@ -1,0 +1,51 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cat body -->
+  <ellipse cx="100" cy="140" rx="60" ry="40" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+
+  <!-- Cat head -->
+  <circle cx="100" cy="80" r="45" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+
+  <!-- Cat ears -->
+  <path d="M70 50 L85 25 L100 50 Z" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+  <path d="M100 50 L115 25 L130 50 Z" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+  <path d="M75 45 L85 35 L95 45 Z" fill="#FFB366"/>
+  <path d="M105 45 L115 35 L125 45 Z" fill="#FFB366"/>
+
+  <!-- Cat face -->
+  <!-- Eyes -->
+  <circle cx="85" cy="75" r="8" fill="#000"/>
+  <circle cx="115" cy="75" r="8" fill="#000"/>
+  <circle cx="87" cy="73" r="3" fill="#FFF"/>
+  <circle cx="117" cy="73" r="3" fill="#FFF"/>
+
+  <!-- Nose -->
+  <path d="M95 85 L100 90 L105 85 Z" fill="#FF1744"/>
+
+  <!-- Mouth -->
+  <path d="M100 90 Q95 95 90 90" stroke="#000" stroke-width="2" fill="none"/>
+  <path d="M100 90 Q105 95 110 90" stroke="#000" stroke-width="2" fill="none"/>
+
+  <!-- Whiskers -->
+  <line x1="60" y1="80" x2="80" y2="82" stroke="#000" stroke-width="2"/>
+  <line x1="60" y1="85" x2="80" y2="85" stroke="#000" stroke-width="2"/>
+  <line x1="60" y1="90" x2="80" y2="88" stroke="#000" stroke-width="2"/>
+
+  <line x1="120" y1="82" x2="140" y2="80" stroke="#000" stroke-width="2"/>
+  <line x1="120" y1="85" x2="140" y2="85" stroke="#000" stroke-width="2"/>
+  <line x1="120" y1="88" x2="140" y2="90" stroke="#000" stroke-width="2"/>
+
+  <!-- Cat tail -->
+  <path d="M40 140 Q20 120 30 100 Q40 90 60 100" stroke="#FF8C42" stroke-width="15" fill="none"/>
+
+  <!-- Cat legs -->
+  <ellipse cx="70" cy="175" rx="12" ry="20" fill="#FF8C42"/>
+  <ellipse cx="95" cy="175" rx="12" ry="20" fill="#FF8C42"/>
+  <ellipse cx="105" cy="175" rx="12" ry="20" fill="#FF8C42"/>
+  <ellipse cx="130" cy="175" rx="12" ry="20" fill="#FF8C42"/>
+
+  <!-- Paws -->
+  <circle cx="70" cy="185" r="10" fill="#FF6B1A"/>
+  <circle cx="95" cy="185" r="10" fill="#FF6B1A"/>
+  <circle cx="105" cy="185" r="10" fill="#FF6B1A"/>
+  <circle cx="130" cy="185" r="10" fill="#FF6B1A"/>
+</svg>
