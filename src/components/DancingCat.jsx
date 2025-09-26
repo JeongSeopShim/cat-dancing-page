@@ -7,9 +7,12 @@ const DancingCat = () => {
     isDancing,
     animationCount,
     animationSpeed,
+    danceStyle,
     toggleDancing,
     changeSpeed,
-    getAnimationDuration
+    changeDanceStyle,
+    getAnimationDuration,
+    getDanceStyleLabel
   } = useAnimation();
 
   const getSpeedLabel = (speed) => {
@@ -24,7 +27,7 @@ const DancingCat = () => {
       <img
         src={catSvg}
         alt="Dancing Cat"
-        className={`dancing-cat ${isDancing ? 'dancing' : ''}`}
+        className={`dancing-cat ${isDancing ? `dancing ${danceStyle}` : ''}`}
         onClick={toggleDancing}
         role="button"
         tabIndex={0}
@@ -71,9 +74,52 @@ const DancingCat = () => {
           <p className="current-speed">Current: {getSpeedLabel(animationSpeed)}</p>
         </div>
 
+        <div className="dance-style-controls">
+          <h3>💃 Dance Styles</h3>
+          <div className="dance-style-buttons">
+            <button
+              className={`dance-style-button ${danceStyle === 'classic' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('classic')}
+            >
+              💃 Classic
+            </button>
+            <button
+              className={`dance-style-button ${danceStyle === 'spinning' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('spinning')}
+            >
+              🌀 Spinning
+            </button>
+            <button
+              className={`dance-style-button ${danceStyle === 'shaking' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('shaking')}
+            >
+              🎾 Shaking
+            </button>
+            <button
+              className={`dance-style-button ${danceStyle === 'pulsing' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('pulsing')}
+            >
+              💓 Pulsing
+            </button>
+            <button
+              className={`dance-style-button ${danceStyle === 'waving' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('waving')}
+            >
+              🌊 Waving
+            </button>
+            <button
+              className={`dance-style-button ${danceStyle === 'flipping' ? 'active' : ''}`}
+              onClick={() => changeDanceStyle('flipping')}
+            >
+              🔄 Flipping
+            </button>
+          </div>
+          <p className="current-dance-style">Current: {getDanceStyleLabel(danceStyle)}</p>
+        </div>
+
         <div className="dance-counter">
           <p>Dance Count: {animationCount}</p>
-          <p className="keyboard-hint">💡 Space: toggle | 1,2,3: speed control</p>
+          <p className="keyboard-hint">💡 Space: toggle | 1,2,3: speed | Q,W,E,R,T,Y: dance styles</p>
         </div>
       </div>
     </div>
