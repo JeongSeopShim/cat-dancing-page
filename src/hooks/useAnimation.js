@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 export const useAnimation = () => {
   const [isDancing, setIsDancing] = useState(false);
   const [animationCount, setAnimationCount] = useState(0);
+  const [animationSpeed, setAnimationSpeed] = useState(1); // 1 = normal speed
 
   const toggleDancing = useCallback(() => {
     setIsDancing(prev => !prev);
@@ -20,11 +21,25 @@ export const useAnimation = () => {
     setIsDancing(false);
   }, []);
 
+  const changeSpeed = useCallback((speed) => {
+    setAnimationSpeed(speed);
+  }, []);
+
+  const getAnimationDuration = useCallback((baseDuration) => {
+    return baseDuration / animationSpeed;
+  }, [animationSpeed]);
+
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (event.code === 'Space') {
         event.preventDefault();
         toggleDancing();
+      } else if (event.code === 'Digit1') {
+        changeSpeed(0.5); // Slow
+      } else if (event.code === 'Digit2') {
+        changeSpeed(1); // Normal
+      } else if (event.code === 'Digit3') {
+        changeSpeed(2); // Fast
       }
     };
 
@@ -32,13 +47,16 @@ export const useAnimation = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [toggleDancing]);
+  }, [toggleDancing, changeSpeed]);
 
   return {
     isDancing,
     animationCount,
+    animationSpeed,
     toggleDancing,
     startDancing,
-    stopDancing
+    stopDancing,
+    changeSpeed,
+    getAnimationDuration
   };
 };

@@ -19,9 +19,9 @@
 
 .dancing-cat.dancing {
   animation:
-    dance-bounce 0.8s ease-in-out infinite alternate,
-    dance-wiggle 0.6s ease-in-out infinite,
-    dance-rotate 2s linear infinite;
+    dance-bounce calc(0.8s / var(--animation-speed, 1)) ease-in-out infinite alternate,
+    dance-wiggle calc(0.6s / var(--animation-speed, 1)) ease-in-out infinite,
+    dance-rotate calc(2s / var(--animation-speed, 1)) linear infinite;
   transform-origin: center bottom;
 }
 
@@ -67,10 +67,66 @@
 .controls {
   margin-top: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.speed-controls {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.speed-controls h3 {
+  margin: 0 0 1rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.speed-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.speed-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.7rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.speed-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.speed-button.active {
+  background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+  border-color: #29b6f6;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+}
+
+.current-speed {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .dance-counter {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .dance-counter p {
@@ -128,9 +184,18 @@
 
   .dancing-cat.dancing {
     animation:
-      dance-bounce 0.8s ease-in-out infinite alternate,
-      dance-wiggle 0.6s ease-in-out infinite,
-      dance-rotate 2s linear infinite;
+      dance-bounce calc(0.8s / var(--animation-speed, 1)) ease-in-out infinite alternate,
+      dance-wiggle calc(0.6s / var(--animation-speed, 1)) ease-in-out infinite,
+      dance-rotate calc(2s / var(--animation-speed, 1)) linear infinite;
+  }
+
+  .speed-buttons {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .speed-controls {
+    padding: 1rem;
   }
 
   @keyframes dance-bounce {
@@ -156,9 +221,14 @@
 
   .dancing-cat.dancing {
     animation:
-      dance-bounce-small 0.8s ease-in-out infinite alternate,
-      dance-wiggle 0.6s ease-in-out infinite,
-      dance-rotate 2s linear infinite;
+      dance-bounce-small calc(0.8s / var(--animation-speed, 1)) ease-in-out infinite alternate,
+      dance-wiggle calc(0.6s / var(--animation-speed, 1)) ease-in-out infinite,
+      dance-rotate calc(2s / var(--animation-speed, 1)) linear infinite;
+  }
+
+  .speed-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
   }
 
   @keyframes dance-bounce-small {
